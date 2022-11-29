@@ -1,8 +1,9 @@
 const mongoose = require('mongoose')
 
-const { MONGOOSE_URI } = process.env
+const { MONGOOSE_URI, MONGOOSE_URI_TEST, NODE_ENV } = process.env
 
-const conectionString = MONGOOSE_URI
+const conectionString =
+  NODE_ENV === 'production' ? MONGOOSE_URI : MONGOOSE_URI_TEST
 
 // CONEXION MONGOOSE
 
